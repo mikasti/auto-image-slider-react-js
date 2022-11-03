@@ -4,7 +4,8 @@
   "description": "Slider for images wrote at React.js + TS + WebPack",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "NODE_ENV='production' webpack"
+    "build": "NODE_ENV='production' webpack",
+    "test": "jest"
   },
   "author": "@mikasti",
   "dependencies": {

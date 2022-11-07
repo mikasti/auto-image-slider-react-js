@@ -5,6 +5,7 @@ import { IImageTitle } from '../../Types/MainTypes';
 import SliderContext from '../SliderContext';
 import SlidesList from './SlideList';
 import Arrows from './Arrows';
+import Dots from './Dots';
 import '../../Assets/CSS/slider.scss';
 import bubbles from '../../Assets/Images/pete-godfrey-AuqCFgIy2rY-unsplash.jpg';
 import car from '../../Assets/Images/stefan-rodriguez-2AovfzYV3rc-unsplash.jpg';
@@ -64,6 +65,7 @@ const ImageSlider: React.FC<IProps> = ({
       <SliderContext.Provider value={SliderContextWrapper}>
         <Arrows />
         <SlidesList />
+        <Dots />
       </SliderContext.Provider>
     </div>
   );

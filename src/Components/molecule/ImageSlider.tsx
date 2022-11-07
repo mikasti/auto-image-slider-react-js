@@ -13,9 +13,13 @@ import sky from '../../Assets/Images/philip-myrtorp-l_28PjLuiuA-unsplash.jpg';
 interface IProps {
   width: string,
   height: string,
+  isAutoPlay?: boolean,
+  autoPlaySeconds?: number,
 }
 
-const ImageSlider: React.FC<IProps> = ({ width, height }) => {
+const ImageSlider: React.FC<IProps> = ({
+  width, height, isAutoPlay, autoPlaySeconds = 3,
+}) => {
   const [items, setItems] = useState<IImageTitle[]>([]);
   const [slide, setSlide] = useState(0);
 
@@ -35,6 +39,19 @@ const ImageSlider: React.FC<IProps> = ({ width, height }) => {
     }
     setSlide(slideNumber);
   }, [items, slide]);
+
+  useEffect(() => {
+    if (!isAutoPlay) return;
+
+    const interval = setInterval(() => {
+      changeSlide(1);
+    }, autoPlaySeconds * 1000);
+
+    // eslint-disable-next-line consistent-return
+    return () => {
+      clearInterval(interval);
+    };
+  }, [isAutoPlay, autoPlaySeconds, changeSlide]);
 
   const SliderContextWrapper = useMemo(() => ({
     changeSlide,

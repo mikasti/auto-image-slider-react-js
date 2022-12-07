@@ -1,3 +1,5 @@
+/* eslint-disable react/function-component-definition */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import ImageSlider from './Components/molecule/ImageSlider';
 import './Assets/CSS/main.scss';
